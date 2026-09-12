@@ -6,7 +6,9 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<meta name="viewport"
+
+content="width=device-width,initial-scale=1.0,user-scalable=no">
 
 <title>RUSUTSU SNOW RIDE</title>
 
@@ -20,17 +22,25 @@
 
   user-select:none;
 
+  touch-action:none;
+
 }
 
-body{
+html,body{
 
   margin:0;
 
+  width:100%;
+
+  height:100%;
+
   overflow:hidden;
 
-  background:#111;
+  font-family:-apple-system,BlinkMacSystemFont,
 
-  font-family:Arial,sans-serif;
+  "Helvetica Neue",Arial,sans-serif;
+
+  background:#8fc9ee;
 
 }
 
@@ -44,105 +54,117 @@ body{
 
   overflow:hidden;
 
-  background:linear-gradient(#72b9e8 0%,#dff5ff 38%,#b9d4df 100%);
+  background:
+
+    linear-gradient(
+
+      #72b8df 0%,
+
+      #bde4f5 42%,
+
+      #eef8fb 100%
+
+    );
 
 }
 
-#mountain{
+/* 空 */
+
+#sky{
 
   position:absolute;
 
-  top:13%;
+  inset:0;
 
-  left:-10%;
+  background:
 
-  width:120%;
+    radial-gradient(circle at 78% 13%,
 
-  height:32%;
+    rgba(255,255,255,.85) 0 28px,
 
-  background:#7896a5;
+    transparent 29px),
+
+    linear-gradient(#73b9e2,#e8f7fc);
+
+}
+
+/* 山 */
+
+.mountain{
+
+  position:absolute;
+
+  left:-30%;
+
+  width:160%;
+
+  height:45%;
+
+  bottom:48%;
+
+  background:#66899a;
 
   clip-path:polygon(
 
-    0 100%,12% 55%,22% 75%,34% 25%,
+    0 100%,
 
-    45% 65%,58% 10%,70% 58%,83% 30%,
+    15% 65%,
 
-    100% 75%,100% 100%
+    27% 78%,
+
+    43% 28%,
+
+    55% 67%,
+
+    70% 15%,
+
+    82% 62%,
+
+    100% 35%,
+
+    100% 100%
 
   );
 
-  opacity:.75;
+  opacity:.8;
 
 }
 
-#snow{
+.mountain.snow{
 
-  position:absolute;
+  background:#eef7fa;
 
-  bottom:-8%;
+  height:42%;
 
-  left:-15%;
+  bottom:49%;
 
-  width:130%;
-
-  height:82%;
-
-  background:white;
+  opacity:.8;
 
   clip-path:polygon(
 
-    35% 0,65% 0,78% 10%,88% 28%,
+    0 100%,
 
-    100% 100%,0 100%,12% 30%,22% 10%
+    15% 70%,
+
+    27% 81%,
+
+    43% 34%,
+
+    55% 70%,
+
+    70% 22%,
+
+    82% 66%,
+
+    100% 42%,
+
+    100% 100%
 
   );
 
-  transform:rotate(1deg);
-
 }
 
-.tree{
-
-  position:absolute;
-
-  width:0;
-
-  height:0;
-
-  border-left:22px solid transparent;
-
-  border-right:22px solid transparent;
-
-  border-bottom:75px solid #315a4a;
-
-}
-
-.tree:after{
-
-  content:"";
-
-  position:absolute;
-
-  left:-17px;
-
-  top:35px;
-
-  border-left:17px solid transparent;
-
-  border-right:17px solid transparent;
-
-  border-bottom:60px solid #315a4a;
-
-}
-
-.t1{left:5%;bottom:25%}
-
-.t2{right:7%;bottom:30%;transform:scale(.8)}
-
-.t3{left:15%;bottom:40%;transform:scale(.55)}
-
-.t4{right:18%;bottom:43%;transform:scale(.65)}
+/* コース */
 
 #course{
 
@@ -150,31 +172,55 @@ body{
 
   left:50%;
 
-  top:-10%;
+  top:-15%;
 
   width:76%;
 
-  height:120%;
+  height:135%;
 
   transform:translateX(-50%);
 
-  background:#f8fbfc;
+  background:#fff;
 
   clip-path:polygon(
 
-    39% 0,61% 0,67% 15%,60% 30%,
+    40% 0,
 
-    72% 45%,58% 62%,70% 78%,
+    60% 0,
 
-    55% 100%,45% 100%,30% 78%,
+    67% 13%,
 
-    42% 62%,28% 45%,40% 30%,33% 15%
+    55% 27%,
+
+    72% 43%,
+
+    57% 58%,
+
+    70% 76%,
+
+    55% 100%,
+
+    45% 100%,
+
+    30% 76%,
+
+    43% 58%,
+
+    28% 43%,
+
+    45% 27%,
+
+    33% 13%
 
   );
 
-  box-shadow:0 0 25px rgba(0,0,0,.15);
+  box-shadow:
+
+    0 0 30px rgba(255,255,255,.8);
 
 }
+
+/* コースの影 */
 
 #course:after{
 
@@ -184,203 +230,187 @@ body{
 
   inset:0;
 
-  background:repeating-linear-gradient(
+  background:
 
-    110deg,
+    repeating-linear-gradient(
 
-    transparent 0,
+      105deg,
 
-    transparent 80px,
+      transparent 0,
 
-    rgba(150,180,190,.15) 82px,
+      transparent 90px,
 
-    transparent 84px
+      rgba(120,170,190,.12) 92px,
 
-  );
+      transparent 95px
+
+    );
 
 }
 
-#player{
+/* 木 */
+
+.tree{
 
   position:absolute;
 
-  left:50%;
+  width:0;
 
-  bottom:17%;
+  height:0;
 
-  transform:translateX(-50%);
+  border-left:24px solid transparent;
 
-  font-size:54px;
+  border-right:24px solid transparent;
 
-  z-index:10;
+  border-bottom:90px solid #285247;
 
-  transition:transform .15s;
+  z-index:5;
 
 }
+
+.tree:after{
+
+  content:"";
+
+  position:absolute;
+
+  left:-19px;
+
+  top:38px;
+
+  border-left:19px solid transparent;
+
+  border-right:19px solid transparent;
+
+  border-bottom:70px solid #23483f;
+
+}
+
+.tree.a{
+
+  left:4%;
+
+  bottom:32%;
+
+  transform:scale(.8);
+
+}
+
+.tree.b{
+
+  right:4%;
+
+  bottom:40%;
+
+  transform:scale(.65);
+
+}
+
+.tree.c{
+
+  left:14%;
+
+  bottom:53%;
+
+  transform:scale(.48);
+
+}
+
+.tree.d{
+
+  right:14%;
+
+  bottom:57%;
+
+  transform:scale(.5);
+
+}
+
+.tree.e{
+
+  left:2%;
+
+  bottom:67%;
+
+  transform:scale(.38);
+
+}
+
+.tree.f{
+
+  right:3%;
+
+  bottom:70%;
+
+  transform:scale(.42);
+
+}
+
+/* HUD */
 
 #hud{
 
   position:absolute;
 
-  top:15px;
+  top:14px;
 
-  left:15px;
+  left:12px;
 
-  right:15px;
+  right:12px;
 
-  z-index:20;
+  z-index:50;
 
   display:flex;
-
-  justify-content:space-between;
 
   gap:8px;
 
 }
 
-.box{
+.hudBox{
 
-  background:rgba(0,0,0,.65);
+  flex:1;
 
-  color:white;
+  min-width:0;
 
-  padding:9px 12px;
-
-  border-radius:12px;
-
-  font-weight:bold;
-
-  font-size:13px;
-
-}
-
-#buttons{
-
-  position:absolute;
-
-  bottom:25px;
-
-  left:0;
-
-  right:0;
-
-  z-index:30;
-
-  display:flex;
-
-  justify-content:center;
-
-  gap:30px;
-
-}
-
-.turn{
-
-  width:75px;
-
-  height:75px;
-
-  border-radius:50%;
-
-  border:2px solid white;
-
-  background:rgba(0,0,0,.55);
+  background:rgba(10,20,28,.72);
 
   color:white;
 
-  font-size:35px;
+  padding:10px 8px;
 
-}
-
-.turn:active{
-
-  background:rgba(255,255,255,.4);
-
-}
-
-#start,
-
-#finish{
-
-  position:absolute;
-
-  inset:0;
-
-  z-index:100;
-
-  background:rgba(0,0,0,.72);
-
-  color:white;
-
-  display:flex;
-
-  flex-direction:column;
-
-  justify-content:center;
-
-  align-items:center;
+  border-radius:14px;
 
   text-align:center;
 
-  padding:25px;
-
-}
-
-#finish{
-
-  display:none;
-
-}
-
-h1{
-
-  margin:0 0 10px;
-
-  font-size:32px;
-
-}
-
-h2{
-
-  margin:8px 0;
-
-}
-
-p{
-
-  line-height:1.6;
-
-}
-
-.mainBtn{
-
-  margin-top:20px;
-
-  padding:15px 35px;
-
-  border:0;
-
-  border-radius:30px;
-
-  background:white;
-
-  color:#222;
-
-  font-size:18px;
+  font-size:12px;
 
   font-weight:bold;
 
+  backdrop-filter:blur(8px);
+
 }
+
+.hudValue{
+
+  display:block;
+
+  margin-top:3px;
+
+  font-size:18px;
+
+}
+
+/* 進行バー */
 
 #progress{
 
   position:absolute;
 
-  top:75px;
+  top:76px;
 
-  left:15px;
+  left:18px;
 
-  right:15px;
+  right:18px;
 
   height:7px;
 
@@ -388,9 +418,9 @@ p{
 
   border-radius:10px;
 
-  overflow:hidden;
+  z-index:50;
 
-  z-index:20;
+  overflow:hidden;
 
 }
 
@@ -402,6 +432,320 @@ p{
 
   background:white;
 
+  border-radius:10px;
+
+}
+
+/* プレイヤー */
+
+#player{
+
+  position:absolute;
+
+  left:50%;
+
+  bottom:18%;
+
+  z-index:30;
+
+  font-size:58px;
+
+  transform:translateX(-50%);
+
+  transition:
+
+    left .18s ease,
+
+    transform .15s ease;
+
+  filter:drop-shadow(0 8px 5px rgba(0,0,0,.25));
+
+}
+
+/* 障害物 */
+
+.obstacle{
+
+  position:absolute;
+
+  z-index:25;
+
+  font-size:44px;
+
+  transition:
+
+    top .1s linear,
+
+    transform .15s;
+
+}
+
+/* スピード線 */
+
+.speedLine{
+
+  position:absolute;
+
+  width:3px;
+
+  height:60px;
+
+  background:rgba(255,255,255,.65);
+
+  z-index:15;
+
+  border-radius:5px;
+
+  animation:fall .5s linear forwards;
+
+}
+
+@keyframes fall{
+
+  from{
+
+    transform:translateY(-100px);
+
+    opacity:0;
+
+  }
+
+  30%{opacity:1}
+
+  to{
+
+    transform:translateY(100vh);
+
+    opacity:0;
+
+  }
+
+}
+
+/* 操作ボタン */
+
+#controls{
+
+  position:absolute;
+
+  left:0;
+
+  right:0;
+
+  bottom:24px;
+
+  z-index:60;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  padding:0 25px;
+
+}
+
+.turn{
+
+  width:78px;
+
+  height:78px;
+
+  border-radius:50%;
+
+  border:2px solid rgba(255,255,255,.8);
+
+  background:rgba(0,0,0,.55);
+
+  color:white;
+
+  font-size:38px;
+
+  font-weight:bold;
+
+  box-shadow:0 5px 15px rgba(0,0,0,.25);
+
+}
+
+.turn:active{
+
+  transform:scale(.92);
+
+  background:rgba(255,255,255,.3);
+
+}
+
+/* スタート画面 */
+
+.overlay{
+
+  position:absolute;
+
+  inset:0;
+
+  z-index:100;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  text-align:center;
+
+  color:white;
+
+  padding:25px;
+
+  background:
+
+    linear-gradient(
+
+      rgba(5,15,22,.55),
+
+      rgba(5,15,22,.82)
+
+    );
+
+  backdrop-filter:blur(3px);
+
+}
+
+.title{
+
+  font-size:38px;
+
+  line-height:1.05;
+
+  font-weight:900;
+
+  letter-spacing:1px;
+
+  margin-bottom:10px;
+
+  text-shadow:0 4px 15px rgba(0,0,0,.4);
+
+}
+
+.subtitle{
+
+  font-size:22px;
+
+  font-weight:bold;
+
+  margin-bottom:25px;
+
+}
+
+.description{
+
+  font-size:16px;
+
+  line-height:1.8;
+
+}
+
+.stats{
+
+  margin-top:15px;
+
+  font-size:17px;
+
+  line-height:1.8;
+
+}
+
+.startButton{
+
+  margin-top:28px;
+
+  padding:16px 60px;
+
+  border:0;
+
+  border-radius:40px;
+
+  background:white;
+
+  color:#111;
+
+  font-size:21px;
+
+  font-weight:900;
+
+  box-shadow:
+
+    0 8px 25px rgba(0,0,0,.35);
+
+}
+
+.startButton:active{
+
+  transform:scale(.95);
+
+}
+
+/* ゴール */
+
+#finish{
+
+  display:none;
+
+}
+
+.resultTitle{
+
+  font-size:42px;
+
+  font-weight:900;
+
+  margin-bottom:10px;
+
+}
+
+.result{
+
+  font-size:20px;
+
+  line-height:2;
+
+}
+
+.rank{
+
+  font-size:30px;
+
+  font-weight:bold;
+
+  margin:10px;
+
+}
+
+/* カウントダウン */
+
+#countdown{
+
+  position:absolute;
+
+  inset:0;
+
+  z-index:90;
+
+  display:none;
+
+  align-items:center;
+
+  justify-content:center;
+
+  color:white;
+
+  font-size:100px;
+
+  font-weight:900;
+
+  text-shadow:0 5px 20px rgba(0,0,0,.5);
+
 }
 
 </style>
@@ -412,27 +756,59 @@ p{
 
 <div id="game">
 
-  <div id="mountain"></div>
+  <div id="sky"></div>
 
-  <div class="tree t1"></div>
+  <div class="mountain"></div>
 
-  <div class="tree t2"></div>
-
-  <div class="tree t3"></div>
-
-  <div class="tree t4"></div>
-
-  <div id="snow"></div>
+  <div class="mountain snow"></div>
 
   <div id="course"></div>
 
+  <div class="tree a"></div>
+
+  <div class="tree b"></div>
+
+  <div class="tree c"></div>
+
+  <div class="tree d"></div>
+
+  <div class="tree e"></div>
+
+  <div class="tree f"></div>
+
   <div id="hud">
 
-    <div class="box">🏔️ ISOLA GRAND</div>
+    <div class="hudBox">
 
-    <div class="box">📏 <span id="distance">3500</span>m</div>
+      COURSE
 
-    <div class="box">⚡ <span id="speed">0</span> km/h</div>
+      <span class="hudValue">ISOLA GRAND</span>
+
+    </div>
+
+    <div class="hudBox">
+
+      DISTANCE
+
+      <span class="hudValue">
+
+        <span id="distance">3500</span>m
+
+      </span>
+
+    </div>
+
+    <div class="hudBox">
+
+      SPEED
+
+      <span class="hudValue">
+
+        <span id="speed">0</span> km/h
+
+      </span>
+
+    </div>
 
   </div>
 
@@ -444,29 +820,57 @@ p{
 
   <div id="player">🏂</div>
 
-  <div id="buttons">
+  <div id="controls">
 
-    <button class="turn" id="left">←</button>
+    <button class="turn" id="left">
 
-    <button class="turn" id="right">→</button>
+      ←
+
+    </button>
+
+    <button class="turn" id="right">
+
+      →
+
+    </button>
 
   </div>
 
-  <div id="start">
+  <div id="countdown">
 
-    <h1>RUSUTSU<br>SNOW RIDE</h1>
+    3
 
-    <h2>ISOLA GRAND</h2>
+  </div>
 
-    <p>
+  <!-- START -->
 
-      ルスツ・イゾラグランドを滑ろう！<br>
+  <div id="start" class="overlay">
 
-      左右ボタンでターンしてゴールを目指せ！
+    <div class="title">
 
-    </p>
+      RUSUTSU<br>
 
-    <p>
+      SNOW RIDE
+
+    </div>
+
+    <div class="subtitle">
+
+      ISOLA GRAND
+
+    </div>
+
+    <div class="description">
+
+      ルスツ・イゾラグランドを滑ろう！
+
+      <br>
+
+      左右にターンしてゴールを目指せ！
+
+    </div>
+
+    <div class="stats">
 
       📏 約3,500m<br>
 
@@ -476,21 +880,69 @@ p{
 
       ⭐ 中級
 
-    </p>
+    </div>
 
-    <button class="mainBtn" onclick="startGame()">START</button>
+    <button
+
+      class="startButton"
+
+      onclick="startGame()">
+
+      START
+
+    </button>
 
   </div>
 
-  <div id="finish">
+  <!-- FINISH -->
 
-    <h1>🏁 FINISH!</h1>
+  <div id="finish" class="overlay">
 
-    <h2>ISOLA GRAND</h2>
+    <div class="resultTitle">
 
-    <p id="result"></p>
+      🏁 FINISH!
 
-    <button class="mainBtn" onclick="location.reload()">もう一度滑る</button>
+    </div>
+
+    <div class="subtitle">
+
+      ISOLA GRAND
+
+    </div>
+
+    <div class="result">
+
+      タイム
+
+      <br>
+
+      <strong id="finalTime">0.0</strong> 秒
+
+      <br>
+
+      スコア
+
+      <br>
+
+      <strong id="finalScore">0</strong>
+
+    </div>
+
+    <div class="rank" id="rank">
+
+      🏂 GOOD RIDE!
+
+    </div>
+
+    <button
+
+      class="startButton"
+
+      onclick="location.reload()">
+
+      もう一度滑る
+
+    </button>
 
   </div>
 
@@ -502,55 +954,129 @@ let distance = 3500;
 
 let speed = 0;
 
-let position = 0;
-
-let startTime;
+let playerX = 50;
 
 let gameRunning = false;
 
-let timer;
+let startTime = 0;
 
-const player = document.getElementById("player");
+let score = 0;
 
-const distanceText = document.getElementById("distance");
+let gameTimer;
 
-const speedText = document.getElementById("speed");
+let obstacleTimer;
 
-const bar = document.getElementById("bar");
+const player =
+
+document.getElementById("player");
+
+const distanceText =
+
+document.getElementById("distance");
+
+const speedText =
+
+document.getElementById("speed");
+
+const bar =
+
+document.getElementById("bar");
+
+const countdown =
+
+document.getElementById("countdown");
+
+/* START */
 
 function startGame(){
 
-  document.getElementById("start").style.display="none";
+  document.getElementById("start")
+
+  .style.display="none";
+
+  countdown.style.display="flex";
+
+  let count=3;
+
+  countdown.textContent=count;
+
+  const cd=setInterval(()=>{
+
+    count--;
+
+    if(count>0){
+
+      countdown.textContent=count;
+
+    }else{
+
+      clearInterval(cd);
+
+      countdown.style.display="none";
+
+      beginRide();
+
+    }
+
+  },700);
+
+}
+
+/* 滑走開始 */
+
+function beginRide(){
 
   gameRunning=true;
 
   startTime=Date.now();
 
-  speed=35;
+  speed=28;
 
-  timer=setInterval(updateGame,100);
+  gameTimer=setInterval(updateGame,100);
+
+  obstacleTimer=setInterval(createObstacle,850);
+
+  createSpeedLines();
 
 }
 
+/* ゲーム更新 */
+
 function updateGame(){
 
-  if(!gameRunning) return;
+  if(!gameRunning)return;
 
   distance -= speed * 0.1;
 
-  if(distance < 0){
+  if(distance<0){
 
     distance=0;
 
   }
 
-  distanceText.textContent=Math.floor(distance);
+  /* 少しずつ加速 */
 
-  speedText.textContent=Math.floor(speed);
+  if(speed<55){
 
-  let progress=(3500-distance)/3500*100;
+    speed += 0.035;
 
-  bar.style.width=progress+"%";
+  }
+
+  distanceText.textContent=
+
+  Math.floor(distance);
+
+  speedText.textContent=
+
+  Math.floor(speed);
+
+  const progress=
+
+  ((3500-distance)/3500)*100;
+
+  bar.style.width=
+
+  progress+"%";
 
   if(distance<=0){
 
@@ -560,97 +1086,119 @@ function updateGame(){
 
 }
 
+/* 左右ターン */
+
 function turn(direction){
 
-  if(!gameRunning) return;
+  if(!gameRunning)return;
 
-  position += direction * 18;
+  playerX += direction * 8;
 
-  if(position>115) position=115;
+  if(playerX<24){
 
-  if(position<-115) position=-115;
+    playerX=24;
+
+  }
+
+  if(playerX>76){
+
+    playerX=76;
+
+  }
+
+  player.style.left=
+
+  playerX+"%";
 
   player.style.transform=
 
-    "translateX(calc(-50% + "+position+"px)) rotate("+
+  "translateX(-50%) rotate("+
 
-    (direction*18)+"deg)";
+  (direction*18)+"deg)";
 
-  speed += 4;
-
-  if(speed>65) speed=65;
+  score += 15;
 
   setTimeout(()=>{
 
     player.style.transform=
 
-      "translateX(calc(-50% + "+position+"px)) rotate(0deg)";
+    "translateX(-50%) rotate(0deg)";
 
-  },180);
+  },160);
 
 }
 
-document.getElementById("left").addEventListener(
+/* ボタン */
 
-  "touchstart",
+document
 
-  function(e){
+.getElementById("left")
 
-    e.preventDefault();
+.addEventListener("touchstart",e=>{
 
-    turn(-1);
+  e.preventDefault();
 
-  }
-
-);
-
-document.getElementById("right").addEventListener(
-
-  "touchstart",
-
-  function(e){
-
-    e.preventDefault();
-
-    turn(1);
-
-  }
-
-);
-
-document.getElementById("left").addEventListener(
-
-  "click",
-
-  ()=>turn(-1)
-
-);
-
-document.getElementById("right").addEventListener(
-
-  "click",
-
-  ()=>turn(1)
-
-);
-
-let touchStartX=0;
-
-document.addEventListener("touchstart",e=>{
-
-  touchStartX=e.touches[0].clientX;
+  turn(-1);
 
 });
 
-document.addEventListener("touchend",e=>{
+document
 
-  if(!gameRunning) return;
+.getElementById("right")
 
-  let endX=e.changedTouches[0].clientX;
+.addEventListener("touchstart",e=>{
 
-  let diff=endX-touchStartX;
+  e.preventDefault();
 
-  if(Math.abs(diff)>40){
+  turn(1);
+
+});
+
+document
+
+.getElementById("left")
+
+.addEventListener("click",()=>turn(-1));
+
+document
+
+.getElementById("right")
+
+.addEventListener("click",()=>turn(1));
+
+/* スワイプ操作 */
+
+let touchX=0;
+
+document.addEventListener(
+
+"touchstart",
+
+e=>{
+
+  touchX=
+
+  e.touches[0].clientX;
+
+});
+
+document.addEventListener(
+
+"touchend",
+
+e=>{
+
+  if(!gameRunning)return;
+
+  const endX=
+
+  e.changedTouches[0].clientX;
+
+  const diff=
+
+  endX-touchX;
+
+  if(Math.abs(diff)>35){
 
     if(diff>0){
 
@@ -666,21 +1214,215 @@ document.addEventListener("touchend",e=>{
 
 });
 
+/* 障害物 */
+
+function createObstacle(){
+
+  if(!gameRunning)return;
+
+  const obstacle=
+
+  document.createElement("div");
+
+  obstacle.className="obstacle";
+
+  obstacle.textContent=
+
+  Math.random()>.5 ? "🌲" : "⛷️";
+
+  let x=
+
+  25+Math.random()*50;
+
+  obstacle.style.left=
+
+  x+"%";
+
+  obstacle.style.top="-80px";
+
+  document
+
+  .getElementById("game")
+
+  .appendChild(obstacle);
+
+  let y=-80;
+
+  const fall=
+
+  setInterval(()=>{
+
+    if(!gameRunning){
+
+      clearInterval(fall);
+
+      obstacle.remove();
+
+      return;
+
+    }
+
+    y+=speed*.7;
+
+    obstacle.style.top=
+
+    y+"px";
+
+    const playerRect=
+
+    player.getBoundingClientRect();
+
+    const obstacleRect=
+
+    obstacle.getBoundingClientRect();
+
+    if(
+
+      playerRect.left <
+
+      obstacleRect.right &&
+
+      playerRect.right >
+
+      obstacleRect.left &&
+
+      playerRect.top <
+
+      obstacleRect.bottom &&
+
+      playerRect.bottom >
+
+      obstacleRect.top
+
+    ){
+
+      score-=50;
+
+      if(score<0)score=0;
+
+      obstacle.remove();
+
+      clearInterval(fall);
+
+    }
+
+    if(y>window.innerHeight){
+
+      clearInterval(fall);
+
+      obstacle.remove();
+
+      score+=10;
+
+    }
+
+  },30);
+
+}
+
+/* スピード線 */
+
+function createSpeedLines(){
+
+  if(!gameRunning)return;
+
+  const line=
+
+  document.createElement("div");
+
+  line.className="speedLine";
+
+  line.style.left=
+
+  Math.random()*100+"%";
+
+  line.style.top=
+
+  Math.random()*40+"%";
+
+  document
+
+  .getElementById("game")
+
+  .appendChild(line);
+
+  setTimeout(()=>{
+
+    line.remove();
+
+  },500);
+
+  setTimeout(createSpeedLines,120);
+
+}
+
+/* ゴール */
+
 function finishGame(){
+
+  if(!gameRunning)return;
 
   gameRunning=false;
 
-  clearInterval(timer);
+  clearInterval(gameTimer);
 
-  let time=((Date.now()-startTime)/1000).toFixed(1);
+  clearInterval(obstacleTimer);
 
-  document.getElementById("finish").style.display="flex";
+  const time=
 
-  document.getElementById("result").innerHTML=
+  ((Date.now()-startTime)/1000)
 
-    "滑走タイム：<strong>"+time+"秒</strong><br><br>"+
+  .toFixed(1);
 
-    "🏂 お疲れさま！";
+  const finalScore=
+
+  Math.max(0,
+
+  Math.floor(score+(3500/time)));
+
+  document
+
+  .getElementById("finalTime")
+
+  .textContent=time;
+
+  document
+
+  .getElementById("finalScore")
+
+  .textContent=finalScore;
+
+  let rank;
+
+  if(finalScore>=1000){
+
+    rank="🏆 PERFECT RIDE!";
+
+  }else if(finalScore>=700){
+
+    rank="🥇 GREAT RIDE!";
+
+  }else if(finalScore>=400){
+
+    rank="🥈 NICE RIDE!";
+
+  }else{
+
+    rank="🏂 GOOD RIDE!";
+
+  }
+
+  document
+
+  .getElementById("rank")
+
+  .textContent=rank;
+
+  document
+
+  .getElementById("finish")
+
+  .style.display="flex";
 
 }
 
