@@ -1,0 +1,2 @@
+# rusutsu-snow-ride
+ルスツスノーボードゲーム
